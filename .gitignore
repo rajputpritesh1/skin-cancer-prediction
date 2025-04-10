@@ -27,7 +27,7 @@ logs/
 *.sqlite
 *.db
 instance/
-
+dataset/
 # Static files (if not tracking)
 static/uploads/
 static/tmp/
