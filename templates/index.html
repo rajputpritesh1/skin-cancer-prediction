@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin Cancer Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Skin Cancer Detection</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if image_path %}
+        <div class="preview">
+            <h3>Uploaded Image:</h3>
+            <img src="{{ url_for('static', filename='uploads/' + image_path.split('/')[-1]) }}" width="300">
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="result {{ result.color }}">
+            <h2>{{ result.label }}</h2>
+            <p class="emoji">{{ result.emoji }}</p>
+            {% if result.type == 'malignant' %}
+                <p><strong>Recommendation:</strong> Please consult a skin specialist immediately.</p>
+            {% else %}
+                <p><strong>Note:</strong> This is not a medical diagnosis. For any doubts, consult a doctor.</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
