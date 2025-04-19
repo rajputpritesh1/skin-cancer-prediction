@@ -31,7 +31,7 @@ dataset/
 # Static files (if not tracking)
 static/uploads/
 static/tmp/
-
+screenshorts/
 # Build and distribution
 dist/
 build/
