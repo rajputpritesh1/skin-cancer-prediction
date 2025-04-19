@@ -61,5 +61,9 @@ def index():
 
     return render_template('index.html', result=result, image_path=image_path)
 
+
+def handler(request, context=None):
+    return app(request.environ, start_response=lambda *args: None)
+
 if __name__ == '__main__':
     app.run(debug=False)
